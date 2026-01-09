@@ -6,6 +6,11 @@ theme = 'sparkles'
 [params]
   description = 'Protocols, Protocols, Protocols!'
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [[menus.main]]
   name = 'Home'
   pageRef = '/'
