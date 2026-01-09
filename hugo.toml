@@ -1,0 +1,22 @@
+baseURL = 'https://hyperfemmelesbian.gay/'
+languageCode = 'en-us'
+title = 'Hyper Femme Lesbian Gay'
+theme = 'sparkles'
+
+[params]
+  description = 'Protocols, Protocols, Protocols!'
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'Protocols'
+  pageRef = '/protocols'
+  weight = 20
+
+[[menus.main]]
+  name = 'Contact'
+  pageRef = '/contact'
+  weight = 30

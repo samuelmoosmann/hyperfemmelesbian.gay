@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <h2>Welcome to the Fabulous Zone!</h2>
+
+  {{ .Content }}
+
+  <div class="video-container">
+    <iframe
+      src="https://www.youtube.com/embed/PIb6AZdTr-A"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem;">
+    Because every day should be this fabulous!
+  </p>
+{{ end }}
