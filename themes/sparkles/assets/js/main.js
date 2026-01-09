@@ -1,5 +1,115 @@
 console.log('✨ Welcome to the most fabulous site ever! ✨');
 
+// Create animated gradient orbs that float in the background
+function createBackgroundOrbs() {
+  const colors = [
+    'radial-gradient(circle, rgba(255, 105, 180, 0.4) 0%, rgba(255, 105, 180, 0.1) 50%, transparent 100%)',
+    'radial-gradient(circle, rgba(255, 182, 223, 0.4) 0%, rgba(255, 182, 223, 0.1) 50%, transparent 100%)',
+    'radial-gradient(circle, rgba(199, 21, 133, 0.4) 0%, rgba(199, 21, 133, 0.1) 50%, transparent 100%)',
+    'radial-gradient(circle, rgba(255, 20, 147, 0.4) 0%, rgba(255, 20, 147, 0.1) 50%, transparent 100%)',
+    'radial-gradient(circle, rgba(255, 0, 255, 0.3) 0%, rgba(255, 0, 255, 0.1) 50%, transparent 100%)'
+  ];
+
+  for (let i = 0; i < 8; i++) {
+    const orb = document.createElement('div');
+    orb.className = 'background-orb';
+    orb.style.position = 'fixed';
+    orb.style.width = (Math.random() * 200 + 150) + 'px';
+    orb.style.height = (Math.random() * 200 + 150) + 'px';
+    orb.style.borderRadius = '50%';
+    orb.style.background = colors[Math.floor(Math.random() * colors.length)];
+    orb.style.pointerEvents = 'none';
+    orb.style.zIndex = '-2';
+    orb.style.left = Math.random() * 100 + '%';
+    orb.style.top = Math.random() * 100 + '%';
+    orb.style.filter = 'blur(60px)';
+    orb.style.opacity = '0.6';
+    orb.style.animation = `orbFloat ${Math.random() * 10 + 15}s ease-in-out infinite, orbPulse ${Math.random() * 5 + 5}s ease-in-out infinite`;
+    orb.style.animationDelay = `${Math.random() * 5}s`;
+
+    document.body.appendChild(orb);
+  }
+}
+
+// Add CSS for orb animations
+const orbStyle = document.createElement('style');
+orbStyle.textContent = `
+  @keyframes orbFloat {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    25% {
+      transform: translate(100px, -50px) scale(1.1);
+    }
+    50% {
+      transform: translate(-50px, 100px) scale(0.9);
+    }
+    75% {
+      transform: translate(75px, 50px) scale(1.05);
+    }
+  }
+
+  @keyframes orbPulse {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+`;
+document.head.appendChild(orbStyle);
+
+// Initialize background orbs
+createBackgroundOrbs();
+
+// Create animated gradient waves that sweep across
+function createGradientWave() {
+  const wave = document.createElement('div');
+  wave.style.position = 'fixed';
+  wave.style.width = '100%';
+  wave.style.height = '300px';
+  wave.style.background = 'linear-gradient(90deg, transparent 0%, rgba(255, 105, 180, 0.3) 50%, transparent 100%)';
+  wave.style.pointerEvents = 'none';
+  wave.style.zIndex = '-2';
+  wave.style.top = Math.random() * 100 + '%';
+  wave.style.left = '-100%';
+  wave.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+  wave.style.filter = 'blur(40px)';
+  wave.style.animation = 'waveSweep 12s ease-in-out';
+
+  document.body.appendChild(wave);
+
+  setTimeout(() => {
+    wave.remove();
+  }, 12000);
+}
+
+// Add wave animation
+const waveStyle = document.createElement('style');
+waveStyle.textContent = `
+  @keyframes waveSweep {
+    0% {
+      left: -100%;
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(waveStyle);
+
+// Create waves periodically
+setInterval(createGradientWave, 6000);
+
 // Create floating sparkles and hearts
 function createFloatingEmoji() {
   const emojis = ['✨', '💖', '💕', '🌈', '💗', '💝', '🦄', '👑', '💎'];

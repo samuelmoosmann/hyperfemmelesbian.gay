@@ -8,20 +8,50 @@ body {
   font-family: 'Georgia', 'Palatino', serif;
   line-height: 1.8;
   color: #2d1b2e;
-  background: linear-gradient(135deg, #ffd6f0 0%, #fff0f9 25%, #ffeaf8 50%, #ffe0f5 75%, #ffd6f0 100%);
+  background: linear-gradient(135deg,
+    #ffd6f0 0%,
+    #ffb6df 10%,
+    #fff0f9 20%,
+    #ffc0e0 30%,
+    #ffeaf8 40%,
+    #ffb0d8 50%,
+    #ffe0f5 60%,
+    #ffd0e8 70%,
+    #fff0f9 80%,
+    #ffc0e0 90%,
+    #ffd6f0 100%);
+  background-size: 400% 400%;
   background-attachment: fixed;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  animation: bodyGlow 10s ease-in-out infinite;
+  animation: bodyGlow 10s ease-in-out infinite, backgroundShift 20s ease-in-out infinite;
 }
 
 @keyframes bodyGlow {
   0%, 100% {
-    filter: brightness(1);
+    filter: brightness(1) saturate(1);
+  }
+  33% {
+    filter: brightness(1.08) saturate(1.15);
+  }
+  66% {
+    filter: brightness(1.03) saturate(1.08);
+  }
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 75%;
   }
   50% {
-    filter: brightness(1.05);
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 75% 25%;
   }
 }
 
@@ -29,34 +59,40 @@ body {
 body::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(255, 182, 223, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(255, 105, 180, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(255, 192, 203, 0.35) 0%, transparent 50%),
-    radial-gradient(circle at 60% 20%, rgba(255, 20, 147, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 10% 60%, rgba(199, 21, 133, 0.2) 0%, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(255, 182, 223, 0.5) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 105, 180, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 192, 203, 0.45) 0%, transparent 50%),
+    radial-gradient(circle at 60% 20%, rgba(255, 20, 147, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 10% 60%, rgba(199, 21, 133, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 90% 10%, rgba(255, 0, 255, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.2) 0%, transparent 60%);
   pointer-events: none;
   z-index: -1;
-  animation: sparkleShift 12s ease-in-out infinite;
+  animation: sparkleShift 12s ease-in-out infinite, backgroundRotate 30s linear infinite;
 }
 
 body::after {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
   background-image:
-    radial-gradient(circle at 70% 40%, rgba(255, 0, 255, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 30% 90%, rgba(255, 105, 180, 0.2) 0%, transparent 40%);
+    radial-gradient(circle at 70% 40%, rgba(255, 0, 255, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 30% 90%, rgba(255, 105, 180, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(255, 192, 203, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 15% 15%, rgba(199, 21, 133, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 10%, rgba(255, 20, 147, 0.3) 0%, transparent 40%),
+    radial-gradient(circle at 25% 75%, rgba(255, 182, 223, 0.25) 0%, transparent 45%);
   pointer-events: none;
   z-index: -1;
-  animation: sparkleShift 15s ease-in-out infinite reverse;
+  animation: sparkleShift 15s ease-in-out infinite reverse, backgroundRotate 40s linear infinite reverse;
 }
 
 @keyframes sparkleShift {
@@ -64,13 +100,30 @@ body::after {
     opacity: 0.7;
     transform: scale(1) rotate(0deg);
   }
-  33% {
-    opacity: 1;
-    transform: scale(1.15) rotate(5deg);
+  20% {
+    opacity: 0.9;
+    transform: scale(1.1) rotate(8deg);
   }
-  66% {
+  40% {
+    opacity: 1;
+    transform: scale(1.18) rotate(5deg);
+  }
+  60% {
     opacity: 0.85;
-    transform: scale(1.05) rotate(-5deg);
+    transform: scale(1.12) rotate(-8deg);
+  }
+  80% {
+    opacity: 0.95;
+    transform: scale(1.05) rotate(-3deg);
+  }
+}
+
+@keyframes backgroundRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
