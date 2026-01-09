@@ -815,3 +815,184 @@ body {
       0 0 40px rgba(255, 20, 147, 0.4);
   }
 }
+
+/* Gremium Member Cards */
+.gremium-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.gremium-member {
+  background: linear-gradient(135deg, #fff0f9, #ffeaf8, #ffe0f5);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    0 8px 25px rgba(255, 105, 180, 0.3),
+    0 0 40px rgba(255, 20, 147, 0.15);
+  border: 3px solid #ffb6df;
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  animation: gremiumCardFloat 5s ease-in-out infinite;
+}
+
+.gremium-member:nth-child(1) { animation-delay: 0s; }
+.gremium-member:nth-child(2) { animation-delay: 0.3s; }
+.gremium-member:nth-child(3) { animation-delay: 0.6s; }
+.gremium-member:nth-child(4) { animation-delay: 0.9s; }
+.gremium-member:nth-child(5) { animation-delay: 1.2s; }
+.gremium-member:nth-child(6) { animation-delay: 1.5s; }
+
+@keyframes gremiumCardFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.gremium-member::before {
+  content: '⭐';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: sparkleRotate 4s ease-in-out infinite;
+}
+
+.gremium-member:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow:
+    0 12px 35px rgba(255, 105, 180, 0.4),
+    0 0 60px rgba(255, 20, 147, 0.3);
+  border-color: #ff69b4;
+}
+
+.gremium-member:hover::before {
+  opacity: 0.7;
+  animation: sparkleRotate 2s ease-in-out infinite;
+}
+
+.gremium-photo {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #ff69b4;
+  box-shadow:
+    0 5px 20px rgba(255, 105, 180, 0.4),
+    inset 0 0 20px rgba(255, 182, 223, 0.3);
+  position: relative;
+  animation: photoPulse 3s ease-in-out infinite;
+}
+
+@keyframes photoPulse {
+  0%, 100% {
+    box-shadow:
+      0 5px 20px rgba(255, 105, 180, 0.4),
+      inset 0 0 20px rgba(255, 182, 223, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 8px 30px rgba(255, 105, 180, 0.6),
+      inset 0 0 30px rgba(255, 182, 223, 0.5);
+  }
+}
+
+.gremium-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffd6f0, #ffb6df, #ff69b4);
+  font-size: 4rem;
+  animation: placeholderShimmer 3s ease-in-out infinite;
+}
+
+@keyframes placeholderShimmer {
+  0%, 100% {
+    background: linear-gradient(135deg, #ffd6f0, #ffb6df, #ff69b4);
+  }
+  50% {
+    background: linear-gradient(135deg, #ff69b4, #ff1493, #c71585);
+  }
+}
+
+.gremium-info {
+  text-align: center;
+}
+
+.gremium-title {
+  color: #c71585;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+  }
+}
+
+.gremium-name {
+  color: #ff1493;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.gremium-description {
+  color: #2d1b2e;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive design for Gremium */
+@media (max-width: 768px) {
+  .gremium-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .gremium-member {
+    padding: 1.5rem;
+  }
+
+  .gremium-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .photo-placeholder {
+    font-size: 3rem;
+  }
+
+  .gremium-title {
+    font-size: 1.1rem;
+  }
+
+  .gremium-name {
+    font-size: 1.3rem;
+  }
+}

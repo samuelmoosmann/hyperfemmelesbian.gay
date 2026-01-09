@@ -22,6 +22,11 @@ theme = 'sparkles'
   weight = 20
 
 [[menus.main]]
+  name = 'Gremium'
+  pageRef = '/gremium'
+  weight = 25
+
+[[menus.main]]
   name = 'Contact'
   pageRef = '/contact'
   weight = 30
