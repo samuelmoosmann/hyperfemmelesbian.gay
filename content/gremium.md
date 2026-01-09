@@ -48,7 +48,7 @@ Welcome to our illustrious committee! Organized with the precision and flair of 
   </div>
   <div class="gremium-info">
     <h3 class="gremium-title">Deputy Secretary for Protocols</h3>
-    <h4 class="gremium-name">Comrade Martina Konkubina Steinebach-Spiegel</h4>
+    <h4 class="gremium-name">Comrade Martina Maschina Konkubina Steinebach-Spiegel</h4>
     <p class="gremium-description">
       Second-in-command for all protocol-related matters. Maintains the sacred protocol handbook and leads the weekly protocol review sessions.
     </p>
